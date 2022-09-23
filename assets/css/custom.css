@@ -1,0 +1,36 @@
+.samesize {
+    width: 300px;
+    height: 399px;
+    padding: 10px;
+}
+
+.samesize-2 {
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+}
+
+.samesize- {
+    width: 200px;
+    height: 200px;
+}
+
+.residentialvideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.linkolor {
+    color: #138596 !important;
+}
+
+.linkolor:hover {
+    color: #138496a6 !important;
+}
