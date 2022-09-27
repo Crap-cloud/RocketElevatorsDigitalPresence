@@ -173,31 +173,31 @@
 												</a>
 											</li>
 										</ul>
-									<li><!-- SERVICES -->
-										<a href="#services">
-											SERVICES
-										</a>
-									</li>
-									<li><!-- PORTFOLIO -->
-										<a href="#portfolio">
-											PORTFOLIO
-										</a>
-									</li>
-									<li><!-- NEWS -->
-										<a href="#news">
-											NEWS
-										</a>
-									</li>
-									<li><!-- CLIENTS -->
-										<a href="#clients">
-											CLIENTS
-										</a>
-									</li>
-									<li><!-- CONTACT -->
-										<a href="#contact">
-											CONTACT
-										</a>
-									</li>
+                                        <li><!-- SERVICES -->
+                                            <a href="index-onepage-construction.html#services">
+                                                SERVICES
+                                            </a>
+                                        </li>
+                                        <li><!-- PORTFOLIO -->
+                                            <a href="index-onepage-construction.html#portfolio">
+                                                PORTFOLIO
+                                            </a>
+                                        </li>
+                                        <li><!-- NEWS -->
+                                            <a href="index-onepage-construction.html#news">
+                                                NEWS
+                                            </a>
+                                        </li>
+                                        <li><!-- CLIENTS -->
+                                            <a href="index-onepage-construction.html#clients">
+                                                CLIENTS
+                                            </a>
+                                        </li>
+                                        <li><!-- CONTACT -->
+                                            <a href="index-onepage-construction.html#contact">
+                                                CONTACT
+                                            </a>
+                                        </li>
 								</ul>
 
 							</nav>
@@ -211,10 +211,132 @@
 
 
 
-		
+
+            <!-- QUOTE -->
+			<section id="quote">
+				<div class="container">
+
+					<div class="heading-title heading-dotted text-center">
+						<h2>Request for a Quote</h2>
+					</div>
 
 
+					<div class="row">
 
+						<!-- FORM -->
+						<div class="col-md-12">
+
+							<h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
+
+
+							<form id="leform" action="#" method="post" enctype="multipart/form-data">
+								<fieldset>
+									<input type="hidden" name="action" value="contact_send" />
+
+									<div class="row">
+                                        <div class="col-md-3">
+                                            <label for="type">Building's type: *</label>
+                                            <select class="form-control pointer" id="type" name="type">
+                                                <option value="">--- Select ---</option>
+                                                <option valeur="residential" data-id="#nb_elev,#nb_apt,#nb_flor,#nb_base"> Residential</option>
+                                                <option valeur="commercial" data-id="#nb_elev,#nb_bus,#nb_flor,#nb_base,#nb_park,#nb_cage"> Commercial</option>
+                                                <option valeur="corporate" data-id="#nb_elev,#nb_compa,#nb_flor,#nb_base,#nb_park,#nb_ocup"> Corporate</option>
+                                                <option valeur="hybrid" data-id="#nb_elev,#nb_bus,#nb_flor,#nb_base,#nb_park,#nb_ocup,#nb_hour"> Hybrid</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <!-- Residential -->
+                                        <div id="nb_apt" class="col-md-6 cacher">
+                                            <label for="nb_apt">Number of apartment in the Building :*</label>
+                                            <input required type="number" value="" class="form-control" name="nb_apt" id="apt" min="0" max="1000">
+                                        </div>
+                                        <div id="nb_flor" class="col-md-6 cacher">
+                                            <label for="nb_flor">Number of floors (exluding the basements) :*</label>
+                                            <input required type="number" value="" class="form-control" name="nb_flor" id="flor" min="0" max="1000">
+                                        </div>
+                                        <div id="nb_base" class="col-md-6 cacher">
+                                            <label for="nb_base">Number of basements contained :*</label>
+                                            <input required type="number" value="" class="form-control" name="nb_base" id="base" min="0" max="1000">
+                                        </div>
+									
+                                    <!-- Commercial -->
+                                        <div id="nb_bus" class="col-md-6 cacher">
+                                            <label for="nb_bus">Number of distinc businesses :*</label>
+                                            <input required type="number" value="" class="form-control" name="nb_bus" id="bus" min="0" max="1000">
+                                        </div>
+                                        <div id="nb_park" class="col-md-6 cacher">
+                                            <label for="nb_park">Number of parking space available :*</label>
+                                            <input required type="number" value="" class="form-control" name="nb_park" id="park" min="0" max="1000">
+                                        </div>
+                                        <div id="nb_cage" class="col-md-6 cacher">
+                                            <label for="nb_cage">Number of elevator cages to be deployed :*</label>
+                                            <input required type="number" value="" class="form-control" name="nb_cage" id="cage" min="0" max="1000">
+                                        </div>
+									
+                                    <!-- Corporate -->
+                                        <div id="nb_compa" class="col-md-6 cacher">
+                                            <label for="nb_compa">Number of separate tenant companies :*</label>
+                                            <input required type="number" value="" class="form-control" name="nb_compa" id="compa" min="0" max="1000">
+                                        </div>
+                                        <div id="nb_ocup" class="col-md-6 cacher">
+                                            <label for="nb_ocup">Maximum number of occupants per floor :*</label>
+                                            <input required type="number" value="" class="form-control" name="nb_ocup" id="ocup" min="0" max="1000">
+                                        </div>
+									
+                                    <!-- Hybrid -->
+                                        <div id="nb_hour" class="col-md-6 cacher">
+                                            <label for="nb_hour">Number of hours of building's activity :*</label>
+                                            <input required type="number" value="" class="form-control" name="nb_hour" id="hour" min="0" max="24">
+                                        </div>
+									</div>
+
+                                    <div class="row">
+                                        <div id="nb_elev" class="col-md-6 cacher">
+                                            <label for="nb_elev">Number of elevator you need :</label>
+                                            <input type="number" readonly="readonly" name="nb_elev" value="" class="form-control" id="elev">
+                                        </div>
+                            
+                                        <h4 class="col-md-12 espace">Choose among the range of elevators :</h4>
+
+                                        <div class="form-check col-md-12 droite">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="standard" value="standard" checked>
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Standard
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-md-12 droite">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="premium" value="premium">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Premium
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-md-12 droite">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="excellium" value="excellium">
+                                            <label class="form-check-label" for="flexRadioDefault3">
+                                                Excellium
+                                            </label>
+                                        </div>
+                                        <div id="prix" class="col-md-6">
+                                            <label class="espace" for="prix">Estimated cost of installation :</label>
+                                            <input type="number" readonly="readonly" name="prix" value="" class="form-control" id="prix_total">
+                                        </div>
+								    </div>
+                                </fieldset>
+							</form>
+
+						</div>
+						<!-- /FORM -->
+						<!-- /INFO -->
+
+					</div>
+
+				</div>
+			</section>
+			<!-- /CONTACT -->
+			<!-- /QUOTE -->
+
+	
 
 			<!-- FOOTER -->
 			<footer id="footer">
@@ -298,6 +420,8 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
+        <script src="assets/js/custom.js"></script>
+
 
 		<!-- REVOLUTION SLIDER -->
 		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
