@@ -34,7 +34,9 @@ $(document).ready(function(){
         if (select.options[1].selected === true) { 
             [apt, flor].forEach(function(element) {
                 element.addEventListener("change", function() {
-                    nb_elev.value = Math.floor(apt.value / 6)*(Math.floor(flor.value/20)+1);
+                    let apt_flor = Math.ceil(apt.value/flor.value/6);
+                    let col = Math.ceil(flor.value/20);
+                    nb_elev.value = apt_flor*col;
                 })
             })
         }
@@ -42,23 +44,28 @@ $(document).ready(function(){
         if (select.options[3].selected === true || select.options[4].selected === true) { 
             [ocup, flor, base].forEach(function(element) {
                 element.addEventListener("change", function() {
-                    nb_elev.value = Math.floor(Math.floor(ocup.value*flor.value)/1000)*(Math.floor((parseInt(flor.value)+parseInt(base.value))/20)+1);
+                    let elev_req = Math.ceil(Math.ceil(ocup.value*(parseInt(flor.value)+parseInt(base.value)))/1000);
+                    let column = Math.ceil((parseInt(flor.value)+parseInt(base.value))/20);
+                    let elev_column = Math.ceil(elev_req / column);
+                    nb_elev.value = elev_column*column;
                 })
             })
         }
         //affichage des services standards, premium et excellium
-        [standard, premium, excellium].forEach(function(element) {
+        [standard, premium, excellium, cage, flor, apt, ocup, base].forEach(function(element) {
             element.addEventListener("change", function() {
                 let x = document.querySelector("input[type=radio]:checked").value;
+                let resultat = 0;
                 if (x === "standard") {
-                    prix_t.value = nb_elev.value*7.565*1.10;
+                    resultat = nb_elev.value*7565*1.10;
                 }
                 if (x === "premium") {
-                    prix_t.value = nb_elev.value*12.345*1.13;
+                    resultat = nb_elev.value*12345*1.13;
                 } 
                 if (x === "excellium") {
-                    prix_t.value = nb_elev.value*15.400*1.16;                
-                }       
+                    resultat = nb_elev.value*15400*1.16;                
+                }
+                prix_t.value = resultat.toFixed(2);    
             })
         })
     })
