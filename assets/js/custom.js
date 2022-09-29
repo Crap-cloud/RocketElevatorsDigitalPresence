@@ -1,3 +1,4 @@
+//on recupere les id de tous les input avec lesquelles on va travailler
 let select = document.querySelector('select');
 let nb_elev = document.getElementById('elev');
 let cage = document.getElementById('cage');
@@ -8,6 +9,9 @@ let base = document.getElementById('base');
 let standard = document.getElementById('standard');
 let premium = document.getElementById('premium');
 let excellium = document.getElementById('excellium');
+let prix_u = document.getElementById('prix_u');
+let prix = document.getElementById('prix');
+let fees = document.getElementById('fees');
 let prix_t = document.getElementById('prix_total');
 
 
@@ -16,7 +20,7 @@ $(document).ready(function(){
 
     select.addEventListener("change", function() { 
         $('.cacher').hide();
-        nb_elev.value = "";
+        nb_elev.value = "";//on remet le nb d'ascenseur calculé à nul
         //on affiche les inputs correspondant a l'option selectionnee
         for(let i=0;i<select.options.length;i++) {
             if (select.options[i].selected === true) {
@@ -51,21 +55,30 @@ $(document).ready(function(){
                 })
             })
         }
-        //affichage des services standards, premium et excellium
+        //affichage des services standards, premium et excellium et des calculs correspondants
         [standard, premium, excellium, cage, flor, apt, ocup, base].forEach(function(element) {
             element.addEventListener("change", function() {
                 let x = document.querySelector("input[type=radio]:checked").value;
                 let resultat = 0;
                 if (x === "standard") {
+                    prix_u.value = "The unit price for a standard elevator shaft is 7565$.";
+                    prix.value = nb_elev.value*7565+"$";
+                    fees.value = nb_elev.value*7565*0.10+"$";
                     resultat = nb_elev.value*7565*1.10;
                 }
                 if (x === "premium") {
+                    prix_u.value = "The unit price for a premium elevator shaft is 12 345$.";
+                    prix.value = nb_elev.value*12345+"$";
+                    fees.value = nb_elev.value*7565*0.13+"$";
                     resultat = nb_elev.value*12345*1.13;
                 } 
                 if (x === "excellium") {
+                    prix_u.value = "The unit price for a excellium elevator shaft is 15 400$.";
+                    prix.value = nb_elev.value*15400+"$"; 
+                    fees.value = nb_elev.value*7565*0.16+"$";           
                     resultat = nb_elev.value*15400*1.16;                
                 }
-                prix_t.value = resultat.toFixed(2);    
+                prix_t.value = resultat.toFixed(2)+"$";    
             })
         })
     })
