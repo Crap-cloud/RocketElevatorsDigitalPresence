@@ -35,7 +35,7 @@ $(document).ready(function(){
             })
         }
         //calcule nb ascenseur residential
-        if (select.options[1].selected === true) { 
+        if (select.options[1].selected === true) {
             [apt, flor].forEach(function(element) {
                 element.addEventListener("change", function() {
                     let apt_flor = Math.ceil(apt.value/flor.value/6);
@@ -59,26 +59,29 @@ $(document).ready(function(){
         [standard, premium, excellium, cage, flor, apt, ocup, base].forEach(function(element) {
             element.addEventListener("change", function() {
                 let x = document.querySelector("input[type=radio]:checked").value;
-                let resultat = 0;
+                let resultat=0, a=0, b=0, c=0;
                 if (x === "standard") {
-                    prix_u.value = "The unit price for a standard elevator shaft is 7565$.";
-                    prix.value = nb_elev.value*7565+"$";
-                    fees.value = nb_elev.value*7565*0.10+"$";
-                    resultat = nb_elev.value*7565*1.10;
+                    a = 7565;
+                    b = (nb_elev.value*7565).toFixed(2);
+                    c = (b*0.10).toFixed(2);
+                    resultat = (b*1.10).toFixed(2);
                 }
                 if (x === "premium") {
-                    prix_u.value = "The unit price for a premium elevator shaft is 12 345$.";
-                    prix.value = nb_elev.value*12345+"$";
-                    fees.value = nb_elev.value*7565*0.13+"$";
-                    resultat = nb_elev.value*12345*1.13;
+                    a = 12345;
+                    b = (nb_elev.value*12345).toFixed(2);
+                    c = (b*0.13).toFixed(2);
+                    resultat = (b*1.13).toFixed(2);
                 } 
                 if (x === "excellium") {
-                    prix_u.value = "The unit price for a excellium elevator shaft is 15 400$.";
-                    prix.value = nb_elev.value*15400+"$"; 
-                    fees.value = nb_elev.value*7565*0.16+"$";           
-                    resultat = nb_elev.value*15400*1.16;                
+                    a = 15400;
+                    b = (nb_elev.value*a).toFixed(2);
+                    c = (b*0.16).toFixed(2);  
+                    resultat = (b*1.16).toFixed(2);                
                 }
-                prix_t.value = resultat.toFixed(2)+"$";    
+                prix_u.value = a.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$";
+                prix.value = b.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$";
+                fees.value = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$";
+                prix_t.value = resultat.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$";
             })
         })
     })
